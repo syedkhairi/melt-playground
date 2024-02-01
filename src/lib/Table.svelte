@@ -51,6 +51,7 @@
                     name: value,
                 });
             },
+            
         }),
         table.column({
             header: 'Age',
@@ -84,11 +85,11 @@
     <tbody {...$tableBodyAttrs}>
       {#each $pageRows as row (row.id)}
         <Subscribe rowAttrs={row.attrs()} let:rowAttrs>
-          <tr {...rowAttrs}>
+          <tr class="@container/row" {...rowAttrs}>
             {#each row.cells as cell (cell.id)}
               <Subscribe attrs={cell.attrs()} let:attrs>
                 <!-- Using named container queries below -->
-                <td class="@container/row" {...attrs}>
+                <td {...attrs}>
                   <Render of={cell.render()} />
                 </td>
               </Subscribe>
